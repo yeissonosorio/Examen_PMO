@@ -1,0 +1,24 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+             x:Class="Examen_PMO.MainPage">
+
+    <StackLayout>
+
+        <controls:Frame BorderColor="Black"  CornerRadius="5" Padding="0" Margin="10" WidthRequest="180" HeightRequest="150">
+            <Image x:Name="Foto" BackgroundColor="Blue" Aspect="AspectFit" WidthRequest="200" HeightRequest="200" />
+        </controls:Frame>
+        <Button x:Name="btntomar" Text="Seleccionar Imagen" Clicked="btntomar_Clicked" WidthRequest="200" Margin="5,10,5,5"/>
+
+        <controls:StackLayout Margin="0,10,0,0">
+            <Label Text="Longitud" />
+            <Entry x:Name="longitud" Placeholder="" Keyboard="Text" Margin="5,10,5,5"/>
+
+            <Label Text="Latitud" />
+            <Entry x:Name="latitud" Placeholder="" Keyboard="Text" Margin="5,10,5,5"/>
+            <Entry x:Name="descripcion" Placeholder="Descripcion" Keyboard="Text" Margin="5,10,5,5"/>
+            <Button x:Name="btnprocesar" Text="Procesar" Clicked="btnprocesar_Clicked" Margin="5,10,5,5"/>
+
+        </controls:StackLayout>
+    </StackLayout>
+</ContentPage>

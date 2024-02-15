@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen_PMO.Mapa"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             Title="Sitio">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Compartir imagen del sitio" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <FlexLayout Direction="Column" AlignItems="Stretch" >
+        <maps:Map x:Name="mapa"
+              IsTrafficEnabled="True"
+              MapType="Street"
+              IsShowingUser="True"
+              IsZoomEnabled="True"
+              IsScrollEnabled="True"
+              FlexLayout.Grow="1"
+              
+              ></maps:Map>
+    </FlexLayout>
+
+</ContentPage>
