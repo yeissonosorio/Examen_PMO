@@ -24,7 +24,7 @@ namespace Examen_PMO
 
                 if (location != null)
                 {
-                    // Si se obtiene la ubicación, puedes usarla como desees
+                    // Si se obtiene la ubicación, puedes usarla  desees
                     double latitude = location.Latitude;
                     double longitude = location.Longitude;
 
