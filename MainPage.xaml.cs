@@ -1,5 +1,4 @@
 ﻿
-
 namespace Examen_PMO
 {
     public partial class MainPage : ContentPage
