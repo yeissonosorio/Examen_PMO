@@ -108,6 +108,7 @@ public partial class editar : ContentPage
                     if (await App.Sitios.StoreSitios(sitioExistente) > 0)
                     {
                         await DisplayAlert("Aviso", "Registro Actualizado con exito!!", "OK");
+                        await Navigation.PushAsync(new Lista());
                     }
                 }
                 catch (Exception ex)

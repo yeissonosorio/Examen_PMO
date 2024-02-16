@@ -83,6 +83,7 @@ namespace Examen_PMO
                         if (await App.Sitios.StoreSitios(sitios) > 0)
                         {
                             await DisplayAlert("Aviso", "Registro ingresado con exito!!", "OK");
+                            await Navigation.PushAsync(new Lista());
                         }
                     }
                     catch (Exception ex)
