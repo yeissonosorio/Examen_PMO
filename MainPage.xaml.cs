@@ -46,7 +46,7 @@ namespace Examen_PMO
             }
             catch (Exception ex)
             {
-                // Otras excepciones
+                
                 Console.WriteLine($"Error al obtener la ubicación: {ex.Message}");
             }
         }
