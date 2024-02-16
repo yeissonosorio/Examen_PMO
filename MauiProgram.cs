@@ -2,7 +2,7 @@
 
 namespace Examen_PMO
 {
-    public static class MauiProgramrrrr
+    public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
         {

@@ -6,10 +6,13 @@ namespace Examen_PMO
 
         FileResult photo;
 
+
         public MainPage()
         {
             InitializeComponent();
             GetLocation();
+            longitud.IsEnabled = false;
+            latitud.IsEnabled = false;
         }
         async void GetLocation()
         {
@@ -27,8 +30,7 @@ namespace Examen_PMO
 
                     latitud.Text = latitude.ToString();
                     longitud.Text = longitude.ToString();
-                    longitud.IsEnabled = false;
-                    latitud.IsEnabled = false;
+                    
 
                 }
             }
@@ -48,38 +50,49 @@ namespace Examen_PMO
                 Console.WriteLine($"Error al obtener la ubicación: {ex.Message}");
             }
         }
+
         private async void btnprocesar_Clicked(object sender, EventArgs e)
         {
-
-            double lati = double.Parse(latitud.Text);
-            double longi = double.Parse(longitud.Text);
-            string Foto = GetImage64();
-
-            if (Foto == null || descripcion.Text == null)
+            try
             {
-                await DisplayAlert("Aviso", "LLene todos los campos", "OK");
-            }
-            else
-            {
-                try
+
+                double lati = double.Parse(latitud.Text);
+                double longi = double.Parse(longitud.Text);
+                string Foto = GetImage64();
+
+                if (Foto == null || descripcion.Text == null || longi == 0)
                 {
-                    var sitios = new Models.sitios
+                    if (longi == 0)
                     {
-                        Longitud = longi,
-                        Latitud = lati,
-                        Descripcion = descripcion.Text,
-                        foto = Foto
-                    };
+                        await DisplayAlert("Aviso", "acepte los permisos de ubicacion o active la ubicacion", "OK");
+                    }
+                    await DisplayAlert("Aviso", "LLene todos los campos", "OK");
+                }
+                else
+                {
+                    try
+                    {
+                        var sitios = new Models.sitios
+                        {
+                            Longitud = longi,
+                            Latitud = lati,
+                            Descripcion = descripcion.Text,
+                            foto = Foto
+                        };
 
-                    if (await App.Sitios.StoreSitios(sitios) > 0)
+                        if (await App.Sitios.StoreSitios(sitios) > 0)
+                        {
+                            await DisplayAlert("Aviso", "Registro ingresado con exito!!", "OK");
+                        }
+                    }
+                    catch (Exception ex)
                     {
-                        await DisplayAlert("Aviso", "Registro ingresado con exito!!", "OK");
+                        await DisplayAlert("Error", "" + ex, "OK");
                     }
                 }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", "" + ex, "OK");
-                }
+            }
+            catch (Exception ex) {
+                await DisplayAlert("Error", "active la ubicación o acepte los permisos de ubicación","Ok");
             }
         }
 

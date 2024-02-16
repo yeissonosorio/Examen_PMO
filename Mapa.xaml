@@ -14,6 +14,7 @@
               IsShowingUser="True"
               IsZoomEnabled="True"
               IsScrollEnabled="True"
+              
               FlexLayout.Grow="1"
               
               ></maps:Map>
